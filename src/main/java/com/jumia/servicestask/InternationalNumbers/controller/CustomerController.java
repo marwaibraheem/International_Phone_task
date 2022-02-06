@@ -53,7 +53,7 @@ public class CustomerController {
 
 		Optional<List<CustomerDTO>> customers = customerRepo.findByState(state);
 
-		if (customers.get().isEmpty()) {
+		if (customers.isPresent() && customers.get().isEmpty()) {
 
 			throw new CustomerNotFoundException("state not found: " + state);
 		}
@@ -79,7 +79,7 @@ public class CustomerController {
 
 		Optional<List<CustomerDTO>> customers = customerRepo.search(keyword);
 
-		if (customers.get().isEmpty()) {
+		if (customers.isPresent() && customers.get().isEmpty()) {
 
 			throw new CustomerNotFoundException("No data with this keyword: " + keyword);
 		}
@@ -92,7 +92,7 @@ public class CustomerController {
 
 		Optional<List<CustomerDTO>> customers = customerRepo.searchByCountryAndState(keyword, state);
 
-		if (customers.get().isEmpty()) {
+		if (customers.isPresent() && customers.get().isEmpty()) {
 
 			throw new CustomerNotFoundException("No data with this search criteria");
 		}

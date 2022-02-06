@@ -1,4 +1,4 @@
-package com.jumia.servicestask.servicetask.controller;
+package com.jumia.servicestask.InternationalNumbers.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
